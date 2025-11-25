@@ -207,7 +207,7 @@ async function generateAudio(text) {
         
         // TODO: Construct the URL with voice ID
         // HINT: `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`
-        const url = 'https://api.elevenlabs.io/v1/text-to-speech/${voiceId}';
+        const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
         
         // TODO: Set up headers (IMPORTANT: ElevenLabs uses 'xi-api-key', not 'Authorization'!)
         const headers = {
@@ -218,13 +218,13 @@ async function generateAudio(text) {
         // TODO: Set up the request body
         // HINT: Need text, model_id ('eleven_monolingual_v1'), and voice_settings
         const data = {
-            text: text,
-            model_id: 'eleven_monolingual_v1',
+            text,
             voice_settings: {
-                stability: 0.5,
-                similarity_boost: 0.75
+              stability: 0.5,
+              similarity_boost: 0.75
             }
-        };
+          };
+          
         
         // TODO: Make the POST request (IMPORTANT: Must use responseType: 'arraybuffer'!)
         // HINT: await axios.post(url, data, { headers, responseType: 'arraybuffer' })
